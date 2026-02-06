@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Card } from '../components/ui';
 import { Shield, User as UserIcon, Briefcase } from 'lucide-react';
-import { UserRole } from '../types';
+import type { UserRole } from '../types';
 
 export const Login = () => {
     const { login } = useAuth();

@@ -1,4 +1,4 @@
-import { Zone, Task } from '../types';
+import type { Zone, Task } from '../types';
 
 export const MOCK_ZONES: Zone[] = [
     { id: 1, name: 'Рецепция', time: '08:00', status: 'DONE' },
