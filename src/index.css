@@ -1,0 +1,105 @@
+:root {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-card: #141414;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #888888;
+  --color-text-accent: #ff0000;
+
+  --color-primary: #c11f24;
+  /* Invictus GO Red */
+  --color-primary-hover: #a3191d;
+
+  --color-success: #00c853;
+  --color-danger: #ff1744;
+  --color-warning: #ffea00;
+
+  --radius-sm: 0px;
+  /* Sharper corners for aggressive style */
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  --accent-gradient: linear-gradient(135deg, #c11f24 0%, #7c1417 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.text-xl {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.w-full {
+  width: 100%;
+}
