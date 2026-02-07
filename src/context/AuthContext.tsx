@@ -18,9 +18,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const login = (role: UserRole) => {
         const mockUsers: Record<UserRole, User> = {
-            MANAGER: { name: 'Александр (Рук)', role: 'MANAGER' },
-            SUPERVISOR: { name: 'Иван (Упр)', role: 'SUPERVISOR' },
-            ADMIN: { name: 'Мария (Адм)', role: 'ADMIN' },
+            MANAGER: { name: 'Санжар (Руководитель)', role: 'MANAGER' },
+            SUPERVISOR: { name: 'Мансур (Управляющий)', role: 'SUPERVISOR' },
+            ADMIN: { name: 'Батырхан (Администратор)', role: 'ADMIN' },
         };
         setUser(mockUsers[role]);
     };
