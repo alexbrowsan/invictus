@@ -29,26 +29,33 @@ export const Login = () => {
             padding: '24px',
             background: '#000'
         }}>
-            <header style={{ marginBottom: '40px', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '3rem', fontWeight: 900, margin: '0', color: 'white' }}>INVICTUS</h1>
+            <header style={{ marginBottom: '30px', textAlign: 'center' }}>
+                <h1 style={{
+                    fontSize: '3rem',
+                    fontWeight: 900,
+                    margin: '0',
+                    color: 'white',
+                    letterSpacing: '-1px'
+                }}>INVICTUS</h1>
                 <div style={{
-                    background: 'var(--color-primary)',
+                    background: '#c11f24',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '240px',
-                    height: '220px',
-                    marginTop: '15px',
-                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 70%)',
+                    width: '260px',
+                    height: '200px',
+                    marginTop: '5px',
+                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 65%)',
                 }}>
                     <span style={{
-                        fontSize: '5.5rem',
-                        fontWeight: 700,
+                        fontSize: '7rem',
+                        fontWeight: 900,
                         fontFamily: "'Inter Tight', sans-serif",
                         color: 'white',
                         lineHeight: 1,
-                        transform: 'scaleY(1.4) translateY(-10px)',
-                        display: 'block'
+                        display: 'block',
+                        transform: 'translateY(-15px)',
+                        marginLeft: '5px' // Slight offset to look more centered with the slant
                     }}>GO</span>
                 </div>
                 <p style={{ marginTop: '20px', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.7rem', color: '#555', fontWeight: 700 }}>
