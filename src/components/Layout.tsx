@@ -56,6 +56,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         ADMIN: [
             { path: '/admin/shift', icon: UserIcon, label: 'Смена' },
             { path: '/admin/checklists', icon: CheckSquare, label: 'Чек-листы' },
+            { path: '/manager/library', icon: Library, label: 'Библиотека' },
         ],
         SUPERVISOR: [
             { path: '/sup/tasks', icon: ClipboardList, label: 'Задачи' },

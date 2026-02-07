@@ -36,42 +36,18 @@ export const DashboardPage = () => {
             </Card>
 
             <h3 className="text-lg font-bold mt-2">Чек-листы</h3>
-            <Card className="flex items-center justify-center py-10">
-                <p style={{
-                    color: 'var(--color-text-secondary)',
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px'
-                }}>
-                    Здесь будут чек листы
-                </p>
+            <Card className="flex items-center justify-center py-6">
+                <p className="text-center text-secondary py-2 text-sm">Здесь будут чек листы</p>
             </Card>
 
             <h3 className="text-lg font-bold mt-2">Температура</h3>
-            <Card className="flex items-center justify-center py-10">
-                <p style={{
-                    color: 'var(--color-text-secondary)',
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px'
-                }}>
-                    здесь будут показания температуры
-                </p>
+            <Card className="flex items-center justify-center py-6">
+                <p className="text-center text-secondary py-2 text-sm">здесь будут показания температуры</p>
             </Card>
 
             <h3 className="text-lg font-bold mt-2">Отзывы</h3>
-            <Card className="flex items-center justify-center py-10">
-                <p style={{
-                    color: 'var(--color-text-secondary)',
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px'
-                }}>
-                    Здесь будут отзывы клиентов
-                </p>
+            <Card className="flex items-center justify-center py-6">
+                <p className="text-center text-secondary py-2 text-sm">Здесь будут отзывы клиентов</p>
             </Card>
         </div>
     );
