@@ -1,10 +1,10 @@
 import type { Zone, Task } from '../types';
 
 export const MOCK_ZONES: Zone[] = [
-    { id: 1, name: 'Рецепция', time: '08:00', status: 'DONE' },
-    { id: 2, name: 'Кардио зона', time: '10:00', status: 'DONE' },
-    { id: 3, name: 'Раздевалки', time: '12:00', status: 'PENDING' },
-    { id: 4, name: 'Туалет', time: '14:00', status: 'LOCKED' },
+    { id: 1, name: 'Рецепция', time: '07:00', status: 'DONE' },
+    { id: 2, name: 'Кардио зона', time: '13:00', status: 'DONE' },
+    { id: 3, name: 'Раздевалки', time: '17:00', status: 'PENDING' },
+    { id: 4, name: 'Туалет', time: '21:00', status: 'LOCKED' },
 ];
 
 export const MOCK_TASKS: Task[] = [

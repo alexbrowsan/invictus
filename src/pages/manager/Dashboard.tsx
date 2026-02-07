@@ -37,7 +37,7 @@ export const DashboardPage = () => {
             </Card>
 
             <div className="flex justify-between items-center mt-2">
-                <h3 className="text-lg font-bold">Состояние зон</h3>
+                <h3 className="text-lg font-bold">Чек-листы</h3>
                 <span className="text-xs text-secondary uppercase font-bold tracking-wider">Обзор</span>
             </div>
 
