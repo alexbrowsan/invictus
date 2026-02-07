@@ -1,7 +1,6 @@
 import { Card } from '../../components/ui';
-import { Users, Clock, ChevronRight } from 'lucide-react';
+import { Users, Clock } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { MOCK_ZONES } from '../../data/mock';
 
 export const DashboardPage = () => {
     const { shiftInfo } = useAuth();
@@ -36,44 +35,44 @@ export const DashboardPage = () => {
                 )}
             </Card>
 
-            <div className="flex justify-between items-center mt-2">
-                <h3 className="text-lg font-bold">Чек-листы</h3>
-                <span className="text-xs text-secondary uppercase font-bold tracking-wider">Обзор</span>
-            </div>
+            <h3 className="text-lg font-bold mt-2">Чек-листы</h3>
+            <Card className="flex items-center justify-center py-10">
+                <p style={{
+                    color: 'var(--color-text-secondary)',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px'
+                }}>
+                    Здесь будут чек листы
+                </p>
+            </Card>
 
-            <div className="flex flex-col gap-3">
-                {MOCK_ZONES.map((zone) => (
-                    <Card key={zone.id}>
-                        <div className="flex justify-between items-center">
-                            <div className="flex items-center gap-4">
-                                <div style={{
-                                    width: '10px',
-                                    height: '10px',
-                                    borderRadius: '50%',
-                                    background: zone.status === 'DONE' ? 'var(--color-success)' :
-                                        zone.status === 'PENDING' ? 'var(--color-warning)' : '#333'
-                                }} />
-                                <div>
-                                    <p style={{ fontWeight: 800, textTransform: 'uppercase', fontSize: '0.85rem' }}>{zone.name}</p>
-                                    <p className="text-[10px] text-secondary">{zone.time}</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span style={{
-                                    fontSize: '0.6rem',
-                                    fontWeight: 900,
-                                    padding: '3px 6px',
-                                    background: zone.status === 'DONE' ? 'rgba(0,200,83,0.1)' : 'rgba(255,255,255,0.05)',
-                                    color: zone.status === 'DONE' ? 'var(--color-success)' : '#555'
-                                }}>
-                                    {zone.status}
-                                </span>
-                                <ChevronRight size={14} className="text-secondary opacity-30" />
-                            </div>
-                        </div>
-                    </Card>
-                ))}
-            </div>
+            <h3 className="text-lg font-bold mt-2">Температура</h3>
+            <Card className="flex items-center justify-center py-10">
+                <p style={{
+                    color: 'var(--color-text-secondary)',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px'
+                }}>
+                    здесь будут показания температуры
+                </p>
+            </Card>
+
+            <h3 className="text-lg font-bold mt-2">Отзывы</h3>
+            <Card className="flex items-center justify-center py-10">
+                <p style={{
+                    color: 'var(--color-text-secondary)',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px'
+                }}>
+                    Здесь будут отзывы клиентов
+                </p>
+            </Card>
         </div>
     );
 };

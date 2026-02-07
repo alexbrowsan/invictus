@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { Layout } from './components/Layout';
 import { Login } from './pages/Login';
 import { ShiftPage } from './pages/admin/Shift';
@@ -7,6 +8,7 @@ import { ShiftPage } from './pages/admin/Shift';
 import { ChecklistsPage } from './pages/admin/Checklist';
 import { TasksPage } from './pages/supervisor/Tasks';
 import { DashboardPage } from './pages/manager/Dashboard';
+import { AccessPage } from './pages/manager/Access';
 
 const AppRoutes = () => {
   const { user } = useAuth();
@@ -33,6 +35,8 @@ const AppRoutes = () => {
         <Route path="/admin/checklists" element={<ChecklistsPage />} />
         <Route path="/sup/tasks" element={<TasksPage />} />
         <Route path="/manager/dashboard" element={<DashboardPage />} />
+        <Route path="/manager/access" element={<AccessPage />} />
+        <Route path="/manager/library" element={<div className="flex items-center justify-center h-[60vh] text-secondary uppercase font-bold">Здесь будет библиотека</div>} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
@@ -41,14 +45,16 @@ const AppRoutes = () => {
   );
 };
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <AppRoutes />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

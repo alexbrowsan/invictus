@@ -20,10 +20,20 @@
   --radius-md: 4px;
   --radius-lg: 8px;
 
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
 
   --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
   --accent-gradient: linear-gradient(135deg, #c11f24 0%, #7c1417 100%);
+  --transition-theme: all 0.3s ease;
+}
+
+[data-theme='light'] {
+  --color-bg-primary: #f5f5f5;
+  --color-bg-secondary: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-text-primary: #121212;
+  --color-text-secondary: #666666;
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -38,6 +48,7 @@ body {
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  transition: var(--transition-theme);
 }
 
 button {

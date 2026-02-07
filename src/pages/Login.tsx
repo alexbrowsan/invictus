@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { Card } from '../components/ui';
-import { Shield, User as UserIcon, Briefcase } from 'lucide-react';
+import { Shield, User as UserIcon, Briefcase, Sun, Moon } from 'lucide-react';
 import type { UserRole } from '../types';
 
 export const Login = () => {
     const { login } = useAuth();
+    const { theme, toggleTheme } = useTheme();
     const navigate = useNavigate();
 
     const handleLogin = (role: UserRole) => {
@@ -15,8 +17,8 @@ export const Login = () => {
 
     const roles = [
         { id: 'MANAGER', title: 'Руководитель', sub: 'Full Dashboard', icon: Shield, color: 'var(--color-primary)' },
-        { id: 'SUPERVISOR', title: 'Управляющий', sub: 'Tasks & Monitoring', icon: Briefcase, color: '#fff' },
-        { id: 'ADMIN', title: 'Администратор', sub: 'Daily Checklist', icon: UserIcon, color: '#fff' },
+        { id: 'SUPERVISOR', title: 'Управляющий', sub: 'Tasks & Monitoring', icon: Briefcase, color: 'var(--color-text-primary)' },
+        { id: 'ADMIN', title: 'Администратор', sub: 'Daily Checklist', icon: UserIcon, color: 'var(--color-text-primary)' },
     ];
 
     return (
@@ -27,14 +29,33 @@ export const Login = () => {
             justifyContent: 'center',
             alignItems: 'center',
             padding: '24px',
-            background: '#000'
+            background: 'var(--color-bg-primary)',
+            transition: 'var(--transition-theme)'
         }}>
+            <div style={{ position: 'absolute', top: '24px', right: '24px' }}>
+                <button
+                    onClick={toggleTheme}
+                    style={{
+                        color: 'var(--color-text-primary)',
+                        padding: '8px',
+                        background: 'var(--color-bg-card)',
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        boxShadow: 'var(--shadow-card)'
+                    }}
+                >
+                    {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+            </div>
+
             <header style={{ marginBottom: '30px', textAlign: 'center' }}>
                 <h1 style={{
                     fontSize: '3rem',
                     fontWeight: 900,
                     margin: '0',
-                    color: 'white',
+                    color: 'var(--color-text-primary)',
                     letterSpacing: '-1px'
                 }}>INVICTUS</h1>
                 <div style={{
