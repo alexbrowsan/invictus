@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, Button } from '../../components/ui';
-import { Clock, CheckCircle, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 export const ShiftPage = () => {
@@ -115,32 +115,7 @@ export const ShiftPage = () => {
                 </div>
             </Card>
 
-            {isShiftActive && (
-                <div className="grid gap-3 mt-4">
-                    <Card style={{ padding: '15px' }}>
-                        <div className="flex items-center gap-4">
-                            <div style={{ background: '#111', padding: '10px' }}>
-                                <Clock size={20} color="var(--color-primary)" />
-                            </div>
-                            <div>
-                                <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', fontWeight: 800, color: '#555' }}>Ближайший обход</p>
-                                <p style={{ fontSize: '1.1rem', fontWeight: 900 }}>14:00 <span style={{ color: '#c11f24', fontSize: '0.8rem' }}>· Через 25 мин</span></p>
-                            </div>
-                        </div>
-                    </Card>
-                    <Card style={{ padding: '15px' }}>
-                        <div className="flex items-center gap-4">
-                            <div style={{ background: '#111', padding: '10px' }}>
-                                <CheckCircle size={20} color="var(--color-success)" />
-                            </div>
-                            <div>
-                                <p style={{ fontSize: '0.7rem', textTransform: 'uppercase', fontWeight: 800, color: '#555' }}>Задачи на сегодня</p>
-                                <p style={{ fontSize: '1.1rem', fontWeight: 900 }}>3 / 5 <span style={{ color: '#444', fontSize: '0.8rem', fontWeight: 700 }}>Выполнено</span></p>
-                            </div>
-                        </div>
-                    </Card>
-                </div>
-            )}
+
         </div>
     );
 };

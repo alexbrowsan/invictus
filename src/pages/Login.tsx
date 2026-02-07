@@ -29,16 +29,27 @@ export const Login = () => {
             padding: '24px',
             background: '#000'
         }}>
-            <header style={{ marginBottom: '60px', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '2.5rem', fontWeight: 900, margin: 0, color: 'white' }}>INVICTUS</h1>
+            <header style={{ marginBottom: '40px', textAlign: 'center' }}>
+                <h1 style={{ fontSize: '3rem', fontWeight: 900, margin: '0', color: 'white' }}>INVICTUS</h1>
                 <div style={{
                     background: 'var(--color-primary)',
-                    display: 'inline-block',
-                    padding: '10px 40px',
-                    marginTop: '5px',
-                    clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '240px',
+                    height: '220px',
+                    marginTop: '15px',
+                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 70%)',
                 }}>
-                    <span style={{ fontSize: '4.5rem', fontWeight: 900, color: 'white', lineHeight: 0.9 }}>GO</span>
+                    <span style={{
+                        fontSize: '5.5rem',
+                        fontWeight: 700,
+                        fontFamily: "'Inter Tight', sans-serif",
+                        color: 'white',
+                        lineHeight: 1,
+                        transform: 'scaleY(1.4) translateY(-10px)',
+                        display: 'block'
+                    }}>GO</span>
                 </div>
                 <p style={{ marginTop: '20px', letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.7rem', color: '#555', fontWeight: 700 }}>
                     Staff Control System

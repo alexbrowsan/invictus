@@ -1,6 +1,7 @@
 import { Card } from '../../components/ui';
-import { Users, AlertTriangle, Clock } from 'lucide-react';
+import { Users, Clock, ChevronRight } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { MOCK_ZONES } from '../../data/mock';
 
 export const DashboardPage = () => {
     const { shiftInfo } = useAuth();
@@ -35,22 +36,43 @@ export const DashboardPage = () => {
                 )}
             </Card>
 
-            <h3 className="text-lg font-bold mt-2">Проблемные зоны</h3>
+            <div className="flex justify-between items-center mt-2">
+                <h3 className="text-lg font-bold">Состояние зон</h3>
+                <span className="text-xs text-secondary uppercase font-bold tracking-wider">Обзор</span>
+            </div>
+
             <div className="flex flex-col gap-3">
-                <Card className="flex items-center gap-4" style={{ borderLeft: '4px solid var(--color-danger)' }}>
-                    <AlertTriangle color="var(--color-danger)" />
-                    <div>
-                        <p className="font-bold">Датчик #3 (Сауна)</p>
-                        <p className="text-sm text-secondary">Температура выше нормы (95°C)</p>
-                    </div>
-                </Card>
-                <Card className="flex items-center gap-4" style={{ borderLeft: '4px solid var(--color-warning)' }}>
-                    <AlertTriangle color="var(--color-warning)" />
-                    <div>
-                        <p className="font-bold">Раздевалка М</p>
-                        <p className="text-sm text-secondary">Чек-лист просрочен на 15 мин</p>
-                    </div>
-                </Card>
+                {MOCK_ZONES.map((zone) => (
+                    <Card key={zone.id}>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center gap-4">
+                                <div style={{
+                                    width: '10px',
+                                    height: '10px',
+                                    borderRadius: '50%',
+                                    background: zone.status === 'DONE' ? 'var(--color-success)' :
+                                        zone.status === 'PENDING' ? 'var(--color-warning)' : '#333'
+                                }} />
+                                <div>
+                                    <p style={{ fontWeight: 800, textTransform: 'uppercase', fontSize: '0.85rem' }}>{zone.name}</p>
+                                    <p className="text-[10px] text-secondary">{zone.time}</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <span style={{
+                                    fontSize: '0.6rem',
+                                    fontWeight: 900,
+                                    padding: '3px 6px',
+                                    background: zone.status === 'DONE' ? 'rgba(0,200,83,0.1)' : 'rgba(255,255,255,0.05)',
+                                    color: zone.status === 'DONE' ? 'var(--color-success)' : '#555'
+                                }}>
+                                    {zone.status}
+                                </span>
+                                <ChevronRight size={14} className="text-secondary opacity-30" />
+                            </div>
+                        </div>
+                    </Card>
+                ))}
             </div>
         </div>
     );

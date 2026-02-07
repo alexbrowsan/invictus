@@ -1,45 +1,53 @@
+import { useState } from 'react';
 import { Card } from '../../components/ui';
-import { Clock, AlertCircle, CheckCircle } from 'lucide-react';
+import { CheckCircle2, Circle } from 'lucide-react';
 import { MOCK_TASKS } from '../../data/mock';
+import type { Task } from '../../types';
 
 export const TasksPage = () => {
+    const [tasks, setTasks] = useState<Task[]>(MOCK_TASKS);
+
+    const toggleTask = (id: number) => {
+        setTasks(prev => prev.map(task =>
+            task.id === id ? { ...task, completed: !task.completed } : task
+        ));
+    };
+
     return (
         <div className="flex flex-col gap-6">
-            <h2 className="text-xl">Задачи</h2>
+            <div className="flex justify-between items-end">
+                <h2 className="text-xl">Задачи</h2>
+                <span className="text-xs text-secondary font-bold uppercase tracking-wider">
+                    Выполнено: {tasks.filter(t => t.completed).length} / {tasks.length}
+                </span>
+            </div>
 
             <div className="flex flex-col gap-3">
-                {MOCK_TASKS.map((task) => (
+                {tasks.map((task) => (
                     <Card
                         key={task.id}
+                        onClick={() => toggleTask(task.id)}
                         style={{
-                            borderLeft: `4px solid ${task.status === 'Completed' ? 'var(--color-success)' :
-                                    task.status === 'Overdue' ? 'var(--color-danger)' : 'var(--color-warning)'
-                                }`
+                            padding: '16px',
+                            borderLeft: task.completed ? '4px solid var(--color-success)' : '4px solid #222',
+                            opacity: task.completed ? 0.7 : 1,
+                            transition: 'all 0.3s ease'
                         }}
                     >
-                        <div className="flex justify-between items-start">
-                            <div className="flex flex-col gap-1">
-                                <p style={{ fontWeight: 800, fontSize: '1rem', textTransform: 'uppercase' }}>{task.title}</p>
-                                <div className="flex items-center gap-2 text-secondary">
-                                    <Clock size={14} />
-                                    <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>До {task.time}</span>
-                                </div>
-                            </div>
-                            {task.status === 'Completed' ? (
-                                <CheckCircle color="var(--color-success)" size={20} />
-                            ) : task.status === 'Overdue' ? (
-                                <AlertCircle color="var(--color-danger)" size={20} />
+                        <div className="flex justify-between items-center">
+                            <span style={{
+                                fontWeight: 700,
+                                fontSize: '0.95rem',
+                                textTransform: 'uppercase',
+                                textDecoration: task.completed ? 'line-through' : 'none',
+                                color: task.completed ? 'var(--color-text-secondary)' : 'var(--color-text-primary)'
+                            }}>
+                                {task.title}
+                            </span>
+                            {task.completed ? (
+                                <CheckCircle2 color="var(--color-success)" size={24} />
                             ) : (
-                                <div style={{
-                                    padding: '4px 8px',
-                                    background: 'rgba(255,193,7,0.1)',
-                                    color: 'var(--color-warning)',
-                                    fontSize: '0.6rem',
-                                    fontWeight: 900,
-                                    textTransform: 'uppercase'
-                                }}>
-                                    Pending
-                                </div>
+                                <Circle color="#333" size={24} />
                             )}
                         </div>
                     </Card>

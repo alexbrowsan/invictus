@@ -4,10 +4,9 @@ import { useAuth } from '../context/AuthContext';
 import {
     LayoutDashboard,
     CheckSquare,
-    Thermometer,
     User as UserIcon,
     ClipboardList,
-    LogOut
+    ArrowLeft
 } from 'lucide-react';
 
 interface NavItemProps {
@@ -50,7 +49,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         ADMIN: [
             { path: '/admin/shift', icon: UserIcon, label: 'Смена' },
             { path: '/admin/checklists', icon: CheckSquare, label: 'Чек-листы' },
-            { path: '/admin/temp', icon: Thermometer, label: 't°C' },
         ],
         SUPERVISOR: [
             { path: '/sup/tasks', icon: ClipboardList, label: 'Задачи' },
@@ -58,7 +56,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         MANAGER: [
             { path: '/manager/dashboard', icon: LayoutDashboard, label: 'Дашборд' },
             { path: '/sup/tasks', icon: ClipboardList, label: 'Задачи' },
-            { path: '/admin/checklists', icon: CheckSquare, label: 'Обзор' },
         ]
     };
 
@@ -77,7 +74,13 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 top: 0,
                 zIndex: 10
             }}>
-                <div>
+                <button
+                    onClick={logout}
+                    style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', padding: '4px' }}
+                >
+                    <ArrowLeft size={24} />
+                </button>
+                <div style={{ textAlign: 'right' }}>
                     <h1 style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '0.5px' }}>
                         INVICTUS <span style={{ color: 'var(--color-primary)' }}>GO</span>
                     </h1>
@@ -85,12 +88,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                         {user.name}
                     </p>
                 </div>
-                <button
-                    onClick={logout}
-                    style={{ background: 'none', border: 'none', color: '#333', cursor: 'pointer' }}
-                >
-                    <LogOut size={20} />
-                </button>
             </header>
 
             <main style={{ padding: '16px' }}>

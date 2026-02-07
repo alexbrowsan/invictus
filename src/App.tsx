@@ -3,7 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { Layout } from './components/Layout';
 import { Login } from './pages/Login';
 import { ShiftPage } from './pages/admin/Shift';
-import { TemperaturePage } from './pages/admin/Temperature';
+
 import { ChecklistsPage } from './pages/admin/Checklist';
 import { TasksPage } from './pages/supervisor/Tasks';
 import { DashboardPage } from './pages/manager/Dashboard';
@@ -29,7 +29,7 @@ const AppRoutes = () => {
 
         {/* Role Specific Routes */}
         <Route path="/admin/shift" element={<ShiftPage />} />
-        <Route path="/admin/temp" element={<TemperaturePage />} />
+
         <Route path="/admin/checklists" element={<ChecklistsPage />} />
         <Route path="/sup/tasks" element={<TasksPage />} />
         <Route path="/manager/dashboard" element={<DashboardPage />} />

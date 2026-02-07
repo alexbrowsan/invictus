@@ -21,8 +21,7 @@ export interface Zone {
 export interface Task {
     id: number;
     title: string;
-    status: 'Pending' | 'Completed' | 'Overdue';
-    time: string;
+    completed: boolean;
 }
 
 export interface TemperatureLog {
